@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Chúc Mừng Sinh Nhật Thịnh 🎉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Be+Vietnam+Pro:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg1: #1a1033;
+    --bg2: #3b1f5e;
+    --text: #fff7fb;
+    --muted: #d9c8f0;
+    --accent: #ffcf5a;
+    --pink: #ff6fa8;
+    --card: rgba(255, 255, 255, 0.08);
+    --card-border: rgba(255, 255, 255, 0.18);
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { background: var(--bg1); }
+  body { min-height: 100vh; }
+  body {
+    font-family: "Be Vietnam Pro", system-ui, sans-serif;
+    color: var(--text);
+    background: var(--bg1) radial-gradient(ellipse at top, var(--bg2), var(--bg1) 900px) no-repeat;
+    overflow-x: hidden;
+    text-align: center;
+  }
+  #confetti { position: fixed; inset: 0; pointer-events: none; z-index: 5; }
+
+  .stars span {
+    position: fixed; width: 2px; height: 2px; background: #fff; border-radius: 50%;
+    opacity: .6; animation: twinkle 3s infinite ease-in-out;
+  }
+  @keyframes twinkle { 50% { opacity: .1; } }
+
+  main { position: relative; z-index: 2; max-width: 760px; margin: 0 auto; padding: 48px 16px 64px; }
+
+  .kicker { letter-spacing: .3em; text-transform: uppercase; color: var(--muted); font-size: .85rem; }
+  h1 {
+    font-family: "Dancing Script", cursive;
+    font-size: clamp(2.8rem, 10vw, 5.5rem);
+    line-height: 1.1;
+    margin: 12px 0 4px;
+    background: linear-gradient(90deg, var(--accent), var(--pink), #8fd3ff, var(--accent));
+    background-size: 300% 100%;
+    -webkit-background-clip: text; background-clip: text; color: transparent;
+    animation: shimmer 6s linear infinite;
+  }
+  @keyframes shimmer { to { background-position: 300% 0; } }
+  .name {
+    font-size: clamp(2rem, 8vw, 3.5rem); font-weight: 800; letter-spacing: .05em;
+    text-shadow: 0 0 24px rgba(255, 111, 168, .6);
+  }
+
+  /* Balloons */
+  .balloon {
+    position: fixed; bottom: -160px; width: 60px; height: 76px; border-radius: 50% 50% 48% 48%;
+    z-index: 1; animation: rise linear infinite; opacity: .85;
+  }
+  .balloon::after {
+    content: ""; position: absolute; left: 50%; top: 100%; width: 1px; height: 70px;
+    background: rgba(255,255,255,.4);
+  }
+  @keyframes rise {
+    from { transform: translateY(0) rotate(-4deg); }
+    50% { transform: translateY(-60vh) rotate(4deg); }
+    to { transform: translateY(-130vh) rotate(-4deg); }
+  }
+
+  /* Cake */
+  .cake-wrap { margin: 40px auto 8px; width: 220px; height: 230px; position: relative; cursor: pointer; }
+  .plate { position: absolute; bottom: 0; left: -10px; width: 240px; height: 16px; background: #e8e3f5; border-radius: 50%; }
+  .layer { position: absolute; left: 20px; width: 180px; border-radius: 12px; }
+  .layer.bottom { bottom: 8px; height: 70px; background: #b5651d; }
+  .layer.middle { bottom: 72px; height: 56px; left: 30px; width: 160px; background: #f3a6c8; }
+  .icing {
+    position: absolute; bottom: 120px; left: 26px; width: 168px; height: 22px;
+    background: #fff; border-radius: 12px 12px 20px 20px;
+  }
+  .layer.bottom::before, .layer.middle::before {
+    content: ""; position: absolute; top: 18px; left: 0; right: 0; height: 8px;
+    background: repeating-linear-gradient(90deg, var(--accent) 0 10px, var(--pink) 10px 20px);
+    opacity: .9;
+  }
+  .candles { position: absolute; bottom: 140px; left: 0; right: 0; display: flex; justify-content: center; gap: 22px; }
+  .candle {
+    width: 10px; height: 44px; border-radius: 3px; position: relative;
+    background: repeating-linear-gradient(45deg, #fff 0 6px, #8fd3ff 6px 12px);
+  }
+  .flame {
+    position: absolute; left: 50%; bottom: 100%; width: 14px; height: 24px; margin-left: -7px;
+    background: radial-gradient(circle at 50% 70%, #fff 0 15%, var(--accent) 35%, #ff7b2e 70%, transparent 72%);
+    border-radius: 50% 50% 35% 35%;
+    transform-origin: 50% 100%;
+    animation: flicker .25s infinite alternate;
+    filter: drop-shadow(0 0 8px #ffb347);
+    transition: opacity .4s, transform .4s;
+  }
+  @keyframes flicker { to { transform: scaleY(1.12) rotate(3deg); } }
+  .out .flame { opacity: 0; transform: scale(.2); animation: none; }
+  .hint { color: var(--muted); font-size: .95rem; min-height: 1.5em; }
+
+  /* Message card */
+  .card {
+    margin: 36px auto 0; padding: 28px 24px; border-radius: 20px;
+    background: var(--card); border: 1px solid var(--card-border);
+    backdrop-filter: blur(8px); text-align: left; line-height: 1.8;
+  }
+  .card h2 { font-family: "Dancing Script", cursive; font-size: 2rem; color: var(--accent); margin-bottom: 8px; }
+  .card p { margin-bottom: 12px; }
+  .card .sign { text-align: right; font-style: italic; color: var(--muted); }
+  #typed::after { content: "▍"; animation: blink 1s steps(1) infinite; color: var(--pink); }
+  #typed.done::after { content: ""; }
+  @keyframes blink { 50% { opacity: 0; } }
+
+  .wishes { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 12px; margin-top: 24px; }
+  .wish {
+    padding: 16px 12px; border-radius: 14px; background: var(--card); border: 1px solid var(--card-border);
+    transition: transform .2s;
+  }
+  .wish:hover { transform: translateY(-4px) rotate(-1deg); }
+  .wish .emo { font-size: 1.8rem; }
+  .wish b { display: block; margin-top: 6px; }
+  .wish small { color: var(--muted); }
+
+  .actions { margin-top: 32px; display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  button {
+    font: inherit; font-weight: 600; cursor: pointer; border: 0; border-radius: 999px;
+    padding: 12px 22px; color: #2a1540; background: linear-gradient(90deg, var(--accent), var(--pink));
+    box-shadow: 0 6px 20px rgba(255, 111, 168, .35); transition: transform .15s;
+  }
+  button:hover { transform: scale(1.05); }
+  button.ghost { background: transparent; color: var(--text); border: 1px solid var(--card-border); box-shadow: none; }
+
+  footer { margin-top: 40px; color: var(--muted); font-size: .85rem; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+<canvas id="confetti"></canvas>
+<div class="stars" id="stars"></div>
+<div id="balloons"></div>
+
+<main>
+  <p class="kicker">Hôm nay là một ngày đặc biệt</p>
+  <h1>Happy Birthday</h1>
+  <div class="name">THỊNH 🎂</div>
+
+  <div class="cake-wrap" id="cake" title="Bấm để thổi nến">
+    <div class="candles">
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+      <div class="candle"><div class="flame"></div></div>
+    </div>
+    <div class="icing"></div>
+    <div class="layer middle"></div>
+    <div class="layer bottom"></div>
+    <div class="plate"></div>
+  </div>
+  <p class="hint" id="hint">🎈 Nhắm mắt, ước một điều, rồi bấm vào bánh để thổi nến nhé!</p>
+
+  <section class="card">
+    <h2>Gửi Thịnh,</h2>
+    <p id="typed"></p>
+    <p class="sign">— Thân gửi từ bạn của Thịnh 💛</p>
+  </section>
+
+  <div class="wishes">
+    <div class="wish"><div class="emo">💪</div><b>Sức khỏe</b><small>Luôn khỏe mạnh, tràn đầy năng lượng</small></div>
+    <div class="wish"><div class="emo">😄</div><b>Niềm vui</b><small>Ngày nào cũng cười thật tươi</small></div>
+    <div class="wish"><div class="emo">🚀</div><b>Thành công</b><small>Học tập, công việc đều thuận lợi</small></div>
+    <div class="wish"><div class="emo">💖</div><b>Hạnh phúc</b><small>Bên cạnh những người thương yêu</small></div>
+  </div>
+
+  <div class="actions">
+    <button id="music">🎵 Phát nhạc sinh nhật</button>
+    <button class="ghost" id="party">🎉 Bắn pháo giấy</button>
+  </div>
+
+  <footer>Made with 💖 cho sinh nhật của Thịnh</footer>
+</main>
+
+<script>
+(() => {
+  const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+  // Stars
+  const stars = document.getElementById("stars");
+  for (let i = 0; i < 60; i++) {
+    const s = document.createElement("span");
+    s.style.left = Math.random() * 100 + "vw";
+    s.style.top = Math.random() * 100 + "vh";
+    s.style.animationDelay = Math.random() * 3 + "s";
+    stars.appendChild(s);
+  }
+
+  // Balloons
+  const colors = ["#ff6fa8", "#ffcf5a", "#8fd3ff", "#b388ff", "#6ee7b7", "#ff8a65"];
+  const balloons = document.getElementById("balloons");
+  for (let i = 0; i < 10; i++) {
+    const b = document.createElement("div");
+    b.className = "balloon";
+    const c = colors[i % colors.length];
+    b.style.background = `radial-gradient(circle at 30% 30%, #fff8, ${c} 40%)`;
+    b.style.left = Math.random() * 95 + "vw";
+    b.style.animationDuration = 12 + Math.random() * 10 + "s";
+    b.style.animationDelay = -Math.random() * 20 + "s";
+    balloons.appendChild(b);
+  }
+
+  // Typewriter message
+  const msg = "Chúc mừng sinh nhật Thịnh! Tuổi mới chúc bạn luôn mạnh khỏe, vui vẻ, " +
+    "gặt hái thật nhiều thành công và giữ mãi nụ cười rạng rỡ. Cảm ơn vì đã là một người bạn tuyệt vời — " +
+    "mong rằng mọi điều ước của bạn đều sẽ thành hiện thực. Quẩy thật nhiệt đi nhé! 🥳";
+  const typed = document.getElementById("typed");
+  if (reduced) { typed.textContent = msg; typed.classList.add("done"); }
+  else {
+    let i = 0;
+    const tick = () => {
+      typed.textContent = msg.slice(0, ++i);
+      if (i < msg.length) setTimeout(tick, 35);
+      else typed.classList.add("done");
+    };
+    setTimeout(tick, 800);
+  }
+
+  // Confetti
+  const canvas = document.getElementById("confetti");
+  const ctx = canvas.getContext("2d");
+  let pieces = [], running = false;
+  const resize = () => { canvas.width = innerWidth; canvas.height = innerHeight; };
+  addEventListener("resize", resize); resize();
+
+  function burst(n = 180) {
+    for (let i = 0; i < n; i++) {
+      pieces.push({
+        x: canvas.width / 2 + (Math.random() - .5) * 200,
+        y: canvas.height / 3,
+        vx: (Math.random() - .5) * 14,
+        vy: Math.random() * -14 - 4,
+        size: 5 + Math.random() * 6,
+        rot: Math.random() * Math.PI,
+        vr: (Math.random() - .5) * .3,
+        color: colors[Math.floor(Math.random() * colors.length)],
+        life: 0
+      });
+    }
+    if (!running) { running = true; requestAnimationFrame(draw); }
+  }
+  function draw() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    pieces.forEach(p => {
+      p.vy += .35; p.vx *= .99; p.x += p.vx; p.y += p.vy; p.rot += p.vr; p.life++;
+      ctx.save(); ctx.translate(p.x, p.y); ctx.rotate(p.rot);
+      ctx.fillStyle = p.color; ctx.fillRect(-p.size / 2, -p.size / 4, p.size, p.size / 2);
+      ctx.restore();
+    });
+    pieces = pieces.filter(p => p.y < canvas.height + 20 && p.life < 400);
+    if (pieces.length) requestAnimationFrame(draw);
+    else { running = false; ctx.clearRect(0, 0, canvas.width, canvas.height); }
+  }
+  if (!reduced) setTimeout(() => burst(220), 400);
+  document.getElementById("party").addEventListener("click", () => burst());
+
+  // Blow out candles
+  const cake = document.getElementById("cake");
+  const hint = document.getElementById("hint");
+  cake.addEventListener("click", () => {
+    if (cake.classList.toggle("out")) {
+      hint.textContent = "✨ Điều ước đã được gửi đi! Chúc Thịnh sinh nhật thật vui! ✨";
+      burst(260);
+    } else {
+      hint.textContent = "🕯️ Nến đã được thắp lại — ước thêm điều nữa nào!";
+    }
+  });
+
+  // Happy Birthday melody via Web Audio
+  const notes = [
+    ["G4", .75], ["G4", .25], ["A4", 1], ["G4", 1], ["C5", 1], ["B4", 2],
+    ["G4", .75], ["G4", .25], ["A4", 1], ["G4", 1], ["D5", 1], ["C5", 2],
+    ["G4", .75], ["G4", .25], ["G5", 1], ["E5", 1], ["C5", 1], ["B4", 1], ["A4", 2],
+    ["F5", .75], ["F5", .25], ["E5", 1], ["C5", 1], ["D5", 1], ["C5", 2]
+  ];
+  const freq = n => {
+    const map = { C: -9, D: -7, E: -5, F: -4, G: -2, A: 0, B: 2 };
+    return 440 * Math.pow(2, (map[n[0]] + (parseInt(n[1]) - 4) * 12) / 12);
+  };
+  let audio = null, stopAt = 0;
+  const musicBtn = document.getElementById("music");
+  musicBtn.addEventListener("click", () => {
+    if (audio) { audio.close(); audio = null; musicBtn.textContent = "🎵 Phát nhạc sinh nhật"; return; }
+    audio = new (window.AudioContext || window.webkitAudioContext)();
+    const beat = .45;
+    let t = audio.currentTime + .1;
+    notes.forEach(([n, d]) => {
+      const osc = audio.createOscillator(), gain = audio.createGain();
+      osc.type = "triangle"; osc.frequency.value = freq(n);
+      gain.gain.setValueAtTime(0, t);
+      gain.gain.linearRampToValueAtTime(.25, t + .02);
+      gain.gain.exponentialRampToValueAtTime(.001, t + d * beat);
+      osc.connect(gain).connect(audio.destination);
+      osc.start(t); osc.stop(t + d * beat);
+      t += d * beat;
+    });
+    musicBtn.textContent = "⏹️ Dừng nhạc";
+    const ctxRef = audio;
+    setTimeout(() => {
+      if (audio === ctxRef) { audio.close(); audio = null; musicBtn.textContent = "🎵 Phát nhạc sinh nhật"; }
+    }, (t - audio.currentTime) * 1000 + 300);
+  });
+})();
+</script>
+</body>
+</html>
